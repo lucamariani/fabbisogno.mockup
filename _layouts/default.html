@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="{{ page.lang }}">
+<head>
+  {% include styles.html %}
+  {% include scripts.html %}
+  {%- if jekyll.environment == 'production' -%}
+  {% comment %}
+    {%- include analytics/google-analytics.html -%}
+    {%- include analytics/matomo.html -%}
+  {% endcomment %}
+  {%- endif -%}
+</head>
+<body>
+  {%- include header/header.html -%}
+  {{ content }}
+  {%- include footer/footer.html -%}
+  {% comment %}
+  {%- include cookiebar.html -%}
+  {%- include modali/menu_popup.html -%}
+  {%- include modali/onboarding.html -%}
+  {% endcomment %}
+</body>
+</html>
