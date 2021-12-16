@@ -45,9 +45,11 @@ footer-links:
 
 # Footer data
 recapiti1: "Regione Umbria"
-recapiti2: "Via Mario Angeloni, 68"
-recapiti3: "06100 Perugia"
+recapiti2: "Via Piemonte, 60"
+recapiti3: "00187 - Roma (Italia)"
 recapiti4: "Centralino (+39) 075.504.1"
 email: "accessounico@regione.umbria.it"
 pec: "regione.giunta@postacert.umbria.it"
 privacy_url: "http://www.regione.umbria.it/privacy-policy"
+codice_fiscale: "97113690586"
+codice_ipa: "AGENAS"
