@@ -1,0 +1,15 @@
+dashboard:
+  - name: anestesisti
+    metaname: anestesisti
+  - name: area materno/infantile
+    metaname: area_materno_infantile
+  - name: area medica
+    metaname: area_medica
+  - name: cardiologia e unit&agrave; coronarica
+    metaname: cardiologia
+  - name: neurologia e stroke
+    metaname: neurologia
+  - name: rete trauma
+    metaname: trauma
+  - name: radiologia
+    metaname: radiologia

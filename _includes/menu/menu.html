@@ -1,4 +1,3 @@
-{% assign current_menu_pages = site.pages | where_exp: "page", "page.order != nil" | sort: "order" %}
 <div class="it-header-navbar-wrapper">
   <div class="container">
     <div class="row">
@@ -16,9 +15,9 @@
             </div>
             <div class="menu-wrapper">
               <ul class="navbar-nav">
-                {% for menu_page in current_menu_pages %}
+                {% for menu_item in site.data.menu %}
                 <li class="nav-item">
-                  <a class="nav-link" href="{{ site.baseurl }}{{menu_page.permalink}}"><span>{{menu_page.title}}</span></a>
+                  <a class="nav-link" href="{{ site.baseurl }}{{menu_item.metaname}}"><span>XXX{{menu_item.name}}</span></a>
                 </li>
                 {% endfor %}
               </ul>
