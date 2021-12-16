@@ -1,0 +1,39 @@
+<main class="py-4 bg_content">
+    <div class="row no-gutters">
+        <div class="col-12 p-2 text-center"><strong>{{ page.title }}</strong></div>
+    </div>
+    <div class="row no-gutters">
+        <div class="col-12 p-5 text-center">
+            <div class="container">
+                <div class="row menu">
+                    <div class="col-sm"></div>
+                    <div class="col-sm">
+                        <a href="#">
+                            <svg class="icon bg-primary">
+                                <use xlink:href="{{ base.url }}/assets/bootstrap-italia/svg/sprite.svg#it-pa"></use>
+                            </svg>
+                            <strong>Home</strong>
+                        </a>
+                    </div>
+                    <div class="col-sm">
+                        <a href="#">
+                            <svg class="icon bg-primary-a1">
+                                <use xlink:href="{{ base.url }}/assets/bootstrap-italia/svg/sprite.svg#it-chart-line"></use>
+                            </svg>
+                            <strong>Charts</strong>
+                        </a>
+                    </div>
+                    <div class="col-sm">
+                        <a href="#">
+                            <svg class="icon icon-white {{ (request()->is('listcaricacsv')) ? 'bg-dark' : 'bg-light' }}">
+                                <use xlink:href="{{ base.url }}/assets/bootstrap-italia/svg/sprite.svg#it-upload"></use>
+                            </svg>
+                            <strong>Carica CSV</strong>
+                        </a>
+                    </div>
+                    <div class="col-sm"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

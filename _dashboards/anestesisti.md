@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: dashboard
 title: Anestesisti
 metatitle: fabbisogno anestesisti
 subtitle: fabbisogno anestesisti
