@@ -2,6 +2,10 @@
 layout: default
 ---
 <div class="container-fluid primary-bg-a1">
-    {% include dashboard_navbar.html %}
+    {% include dashboard/navbar.html %}
+    <div class="container">
+        {% include dashboard/filter.html %}
+        <div class="row py-3"></div>
+    </div>
     {{ content }}
 </div>
