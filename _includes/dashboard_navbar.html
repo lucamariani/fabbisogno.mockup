@@ -1,31 +1,31 @@
-<main class="py-4 bg_content">
-    <div class="row no-gutters">
+<main class="py-4">
+    <div class="row">
         <div class="col-12 p-2 text-center"><strong>{{ page.title }}</strong></div>
     </div>
-    <div class="row no-gutters">
-        <div class="col-12 p-5 text-center">
+    <div class="row">
+        <div class="col-12 py-4 text-center">
             <div class="container">
                 <div class="row menu">
                     <div class="col-sm"></div>
                     <div class="col-sm">
-                        <a href="#">
-                            <svg class="icon bg-primary">
+                        <a class="btn-link text-decoration-none" href="#">
+                            <svg class="icon icon-primary mr-1">
                                 <use xlink:href="{{ base.url }}/assets/bootstrap-italia/svg/sprite.svg#it-pa"></use>
                             </svg>
                             <strong>Home</strong>
                         </a>
                     </div>
                     <div class="col-sm">
-                        <a href="#">
-                            <svg class="icon bg-primary-a1">
-                                <use xlink:href="{{ base.url }}/assets/bootstrap-italia/svg/sprite.svg#it-chart-line"></use>
-                            </svg>
-                            <strong>Charts</strong>
+                        <a class="btn-link disabled text-decoration-none" href="#">
+                                <svg class="icon icon-secondary mr-1"> <!--style="border: 1px solid;border-radius: 20px"-->
+                                    <use xlink:href="{{ base.url }}/assets/bootstrap-italia/svg/sprite.svg#it-chart-line"></use>
+                                </svg>
+                            <strong class="">Charts</strong>
                         </a>
                     </div>
                     <div class="col-sm">
-                        <a href="#">
-                            <svg class="icon icon-white {{ (request()->is('listcaricacsv')) ? 'bg-dark' : 'bg-light' }}">
+                        <a class="btn-link text-decoration-none" href="#">
+                            <svg class="icon icon-primary mr-1">
                                 <use xlink:href="{{ base.url }}/assets/bootstrap-italia/svg/sprite.svg#it-upload"></use>
                             </svg>
                             <strong>Carica CSV</strong>
