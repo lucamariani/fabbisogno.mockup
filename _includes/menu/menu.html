@@ -1,47 +1,51 @@
 <div class="it-header-navbar-wrapper">
-  <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <nav class="navbar navbar-expand-lg has-megamenu">
-          <button class="custom-navbar-toggler" type="button" aria-controls="nav10" aria-expanded="false" aria-label="Toggle navigation" data-target="#nav10">
-            <svg class="icon">
-              <use xlink:href="{{ site.baseurl }}/assets/bootstrap-italia/dist/svg/sprite.svg#it-burger"></use>
-            </svg>
-          </button>
-          <div class="navbar-collapsable" id="nav10">
-            <div class="overlay"></div>
-            <div class="close-div sr-only">
-              <button class="btn close-menu" type="button"><span class="it-close"></span>close</button>
-            </div>
-            <div class="menu-wrapper">
-              <ul class="navbar-nav">
-<!--                  <li class="nav-item">-->
-<!--                    <a class="nav-link" href="{{ site.baseurl }}{{menu_item.metaname}}"><span>{{menu_item.name}}</span></a>-->
-<!--                  </li>-->
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="navbar navbar-expand-lg has-megamenu">
+                    <button class="custom-navbar-toggler" type="button" aria-controls="nav10" aria-expanded="false"
+                            aria-label="Toggle navigation" data-target="#nav10">
+                        <svg class="icon">
+                            <use xlink:href="{{ site.baseurl }}/assets/bootstrap-italia/dist/svg/sprite.svg#it-burger"></use>
+                        </svg>
+                    </button>
+                    <div class="navbar-collapsable" id="nav10">
+                        <div class="overlay"></div>
+                        <div class="close-div sr-only">
+                            <button class="btn close-menu" type="button"><span class="it-close"></span>close</button>
+                        </div>
+                        <div class="menu-wrapper">
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ site.baseurl }}"><span>Home</span></a>
+                                </li>
 
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false">
-                    <span>Dashboards</span>
-                    <svg class="icon icon-xs">
-                      <use xlink:href="{{ site.baseurl }}/assets/bootstrap-italia/svg/sprite.svg#it-expand"></use>
-                    </svg>
-                  </a>
-                  <div class="dropdown-menu">
-                    <div class="link-list-wrapper">
-                      <ul class="link-list">
-                        {% for menu_item in site.data.menu.dashboards %}
-                          <li><a class="list-item text-capitalize" href="{{ site.baseurl }}{{ menu_item.metaname }}"><span>{{menu_item.name}}</span></a></li>
-                        {% endfor %}
-<!--                        <li><span class="divider"></span></li>-->
-                      </ul>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown"
+                                       aria-expanded="false">
+                                        <span>Dashboards</span>
+                                        <svg class="icon icon-xs">
+                                            <use xlink:href="{{ site.baseurl }}/assets/bootstrap-italia/svg/sprite.svg#it-expand"></use>
+                                        </svg>
+                                    </a>
+                                    <div class="dropdown-menu">
+                                        <div class="link-list-wrapper">
+                                            <ul class="link-list">
+                                                {% for menu_item in site.data.menu.dashboards %}
+                                                <li><a class="list-item text-capitalize"
+                                                       href="{{ site.baseurl }}{{ menu_item.metaname }}"><span>{{menu_item.name}}</span></a>
+                                                </li>
+                                                {% endfor %}
+                                                <!--                        <li><span class="divider"></span></li>-->
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                  </div>
-                </li>
-              </ul>
+                </nav>
             </div>
-          </div>
-        </nav>
-      </div>
+        </div>
     </div>
-  </div>
 </div>
