@@ -1,0 +1,41 @@
+<!-- Login button -->
+<button class="btn btn-primary btn-sm login-mask" type="button" data-toggle="modal" data-target="#login-modal">
+    Accedi
+</button>
+<!-- / Login button -->
+
+<!-- Logged in mask -->
+<div class="logout-mask white-color">
+    <svg class="d-none d-sm-inline icon icon-sm icon-white logout-icon-class">
+        <use xlink:href="{{ site.baseurl }}/assets/bootstrap-italia/dist/svg/sprite.svg#it-user"></use>
+    </svg>
+    <span id="user-name" class="small"></span>
+    <svg class="icon icon-sm icon-white logout-icon-class">
+        <use xlink:href="{{ site.baseurl }}/assets/bootstrap-italia/dist/svg/sprite.svg#it-close-circle"></use>
+    </svg>
+</div>
+<!-- / Logged in mask -->
+
+<!-- Login modal -->
+<div class="">
+    <div class="modal" tabindex="-1" role="dialog" id="login-modal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Login</h5>
+                </div>
+                <div class="modal-body">
+                    <p>Seleziona la categoria di utenza</p>
+                    <div id="user-login-btns" class="my-3">
+                        <button class="btn btn-primary btn-sm my-1" type="button" data-dismiss="modal" user-role="private">
+                            Demo accesso utente
+                        </button>
+                        <button class="btn btn-primary btn-sm my-1" type="button" data-dismiss="modal" user-role="pa">
+                            Demo accesso amministratore
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,53 @@
+---
+## Main icon
+icon: "/assets/images/accesso_unico.png"
+iconAuthor: "/assets/images/LogoRegioneWhite.png"
+
+## Social Card [1200x630]
+social-card: /assets/images/favicons/social-card.png
+
+## Site name
+name: "Agenas"
+
+## Site description
+description: "Agenzia Nazionale per i Servizi Sanitari Regionali"
+
+## Site author
+author: "Regione Umbria"
+
+descriptionAuthor: "Giunta Regionale"
+
+## Social
+social-links:
+  twitter:
+    name: "twitter"
+    url: "https://twitter.com/Agenas"
+  facebook:
+    name: "facebook"
+    url: "https://www.facebook.com/Agenas/"
+  youtube:
+    name: "youtube"
+    url: "https://www.youtube.com/Agenas/"
+
+## Labels
+share: "Condividi"
+italian-version: "Versione italiana"
+english-version: "Versione inglese"
+cookie-policy-info: "Questo sito utilizza cookie tecnici, analytics e di terze parti.<br>Proseguendo nella navigazione accetti l’utilizzo dei cookie."
+cookie-policy-accept-btn: "Accetto"
+footer-links:
+  privacy-policy:
+    name: "Privacy policy"
+    url: "https://www.regione.umbria.it/privacy-policy"
+  cookie-policy:
+    name: "Cookie Policy"
+    url: "https://www.regione.umbria.it/privacy-policy"
+
+# Footer data
+recapiti1: "Regione Umbria"
+recapiti2: "Via Mario Angeloni, 68"
+recapiti3: "06100 Perugia"
+recapiti4: "Centralino (+39) 075.504.1"
+email: "accessounico@regione.umbria.it"
+pec: "regione.giunta@postacert.umbria.it"
+privacy_url: "http://www.regione.umbria.it/privacy-policy"

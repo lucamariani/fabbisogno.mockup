@@ -8,7 +8,7 @@ tutte le pagine del sito che:
 {% if page.lang %}
   {% assign pageLang = page.lang %}
 {% endif %}
-{% assign current_menu_pages = site.pages | where_exp: "page", "page.order != nil" | sort: "order" %}
+
 <div class="it-nav-wrapper">
   <div class="it-header-center-wrapper">
     <div class="container">
@@ -19,8 +19,7 @@ tutte le pagine del sito che:
               <a href="{{ site.baseurl }}/">
                 <img class="" src="{{ site.baseurl }}/assets/images/logo_rep_agenas.png" alt="{{ site.name }} logo">
                 <div class="it-brand-text">
-                  <h3 class="float-left">beta2021</h3>
-                  <h2 class="no_toc">{{ site.data.t.name }} </h2>
+                  <h2 class="no_toc">{{ site.data.t.name }}</h2>
                   <h3 class="no_toc d-none d-md-block">{{ site.data.t.description }}</h3>
                 </div>
               </a>
@@ -41,52 +40,14 @@ tutte le pagine del sito che:
                   {% endfor %}
                 </ul>
               </div>
-              {% comment %}
-              <!-- Search button -->
-              <div class="it-search-wrapper">
-                <span class="d-none d-md-block">Cerca</span>
-                <a class="search-link rounded-icon" href="#" aria-label="Cerca">
-                  <svg class="icon">
-                    <use xlink:href="{{ site.baseurl }}/assets/bootstrap-italia/svg/sprite.svg#it-search"></use>
-                  </svg>
-                </a>
-              </div>
-              {% endcomment %}
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="it-header-navbar-wrapper">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <nav class="navbar navbar-expand-lg has-megamenu">
-            <button class="custom-navbar-toggler" type="button" aria-controls="nav10" aria-expanded="false" aria-label="Toggle navigation" data-target="#nav10">
-              <svg class="icon">
-                <use xlink:href="{{ site.baseurl }}/assets/bootstrap-italia/svg/sprite.svg#it-burger"></use>
-              </svg>
-            </button>
-            <div class="navbar-collapsable" id="nav10">
-              <div class="overlay"></div>
-              <div class="close-div sr-only">
-                <button class="btn close-menu" type="button"><span class="it-close"></span>close</button>
-              </div>
-              <div class="menu-wrapper">
-                <ul class="navbar-nav">
-                  {% for menu_page in current_menu_pages %}
-                  <li class="nav-item">
-                    <a class="nav-link" href="{{ site.baseurl }}{{menu_page.permalink}}"><span>{{menu_page.title}}</span></a>
-                  </li>
-                  {% endfor %}
-                  {% comment %}{% include header/demo-menu.html%}{% endcomment %}
-                </ul>
-              </div>
-            </div>
-          </nav>
-        </div>
-      </div>
-    </div>
-  </div>
+  <!-- user panel -->
+  {% comment %}{% include header/header-panel.html %}{% endcomment %}
+  <!-- menu -->
+  {% include menu/menu.html %}
 </div>

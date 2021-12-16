@@ -1,0 +1,26 @@
+<div class="col-sm font-weight-semibold header_panel text-center text-white">PANNELLO DI CONTROLLO UTENTE</div>
+<div class="dropdown primary-bg">
+    <button style="color:#fff;font-size:1em" class="btn btn-dropdown dropdown-toggle"
+            type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+        <div class="list-item">
+            <span class="mr-2">Utente 1 </span>
+            <div class="avatar size-md">
+                <svg class="icon icon-secondary">
+                    <use xlink:href="/svg/sprite.svg#it-user"></use>
+                </svg>
+            </div>
+        </div>
+    </button>
+    <a style="top: 3px;position: relative;" class="list-item"
+       href="{{ route('logout') }}"><span>ESCI</span></a>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <div class="link-list-wrapper">
+            <ul class="link-list">
+                <li><a style="font-weight:normal" class="list-item"
+                       href="{{route('user-logs')}}"><span>Lista Logs</span></a></li>
+                <li><a class="list-item" href="{{route('logout')}}"><span>ESCI</span></a></li>
+            </ul>
+        </div>
+    </div>
+</div>

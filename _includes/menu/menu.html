@@ -1,0 +1,31 @@
+{% assign current_menu_pages = site.pages | where_exp: "page", "page.order != nil" | sort: "order" %}
+<div class="it-header-navbar-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <nav class="navbar navbar-expand-lg has-megamenu">
+          <button class="custom-navbar-toggler" type="button" aria-controls="nav10" aria-expanded="false" aria-label="Toggle navigation" data-target="#nav10">
+            <svg class="icon">
+              <use xlink:href="{{ site.baseurl }}/assets/bootstrap-italia/dist/svg/sprite.svg#it-burger"></use>
+            </svg>
+          </button>
+          <div class="navbar-collapsable" id="nav10">
+            <div class="overlay"></div>
+            <div class="close-div sr-only">
+              <button class="btn close-menu" type="button"><span class="it-close"></span>close</button>
+            </div>
+            <div class="menu-wrapper">
+              <ul class="navbar-nav">
+                {% for menu_page in current_menu_pages %}
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ site.baseurl }}{{menu_page.permalink}}"><span>{{menu_page.title}}</span></a>
+                </li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
