@@ -3,77 +3,25 @@ layout: page
 permalink: /strutture
 title: strutture
 ---
+<style>
+    .table th {background-color: #06c; color: white}
+</style>
 
-<div class="container">
-    <table id="struttureTable" class="table">
-        <thead>
-            <tr>
-                <th>CODICE STABILIMENTO</th>
-                <th>Anno</th>
-                <th>Codice Regione</th>
-                <th>Descrizione Regione</th>
-                <th>Codice Azienda</th>
-                <th>Denominazione Azienda</th>
-<!--                <th>Codice USL territoriale</th>-->
-<!--                <th>Codice struttura</th>-->
-<!--                <th>Denominazione struttura</th>-->
-<!--                <th>Tipo struttura</th>-->
-<!--                <th>Strutture di ricovero.Partita IVA</th>-->
-<!--                <th>Descrizione tipo struttura</th>-->
-<!--                <th>Tipo IRCCS/A.O. Univ. e Policlinico</th>-->
-<!--                <th>Tipo casa di cura</th>-->
-<!--                <th>Strutture di ricovero.Attività riabilitazione</th>-->
-<!--                <th>Strutture di ricovero.Attività day surgery</th>-->
-<!--                <th>Strutture di ricovero.Attività pediatrica</th>-->
-<!--                <th>Subcodice</th>-->
-<!--                <th>Denominazione</th>-->
-<!--                <th>Stabilimenti.Partita IVA</th>-->
-<!--                <th>Stabilimenti.Attività day surgery</th>-->
-<!--                <th>Stabilimenti.Attività pediatrica</th>-->
-<!--                <th>Stabilimenti.Attività riabilitazione</th>-->
-<!--                <th>Giorno apertura</th>-->
-<!--                <th>Mese apertura</th>-->
-<!--                <th>Anno apertura</th>-->
-<!--                <th>Giorno chiusura</th>-->
-<!--                <th>Mese chiusura</th>-->
-<!--                <th>Anno chiusura</th>-->
-<!--                <th>Indirizzo</th>-->
-<!--                <th>CAP</th>-->
-<!--                <th>Codice Comune</th>-->
-<!--                <th>Comune</th>-->
-<!--                <th>Sigla provincia</th>-->
-<!--                <th>Nome provincia</th>-->
-<!--                <th>Diagnostica per immagini</th>-->
-<!--                <th>Dipartimento emergenza</th>-->
-<!--                <th>Centro trasfusionale</th>-->
-<!--                <th>Oncologia medica</th>-->
-<!--                <th>Pronto soccorso</th>-->
-<!--                <th>Pronto soccorso pediatrico</th>-->
-<!--                <th>Radioterapia</th>-->
-<!--                <th>Servizio rianimazione</th>-->
-<!--                <th>Servizio dialisi</th>-->
-<!--                <th>Sale operatorie stab.</th>-->
-<!--                <th>Posti camere iperbariche stab.</th>-->
-<!--                <th>Incubatrici stab.</th>-->
-<!--                <th>Culle stab.</th>-->
-<!--                <th>ClassificazioneStruttura</th>-->
-<!--                <th>chiave stabilimento</th>-->
-<!--                <th>Codice disciplina</th>-->
-<!--                <th>Descrizione disciplina</th>-->
-<!--                <th>Progressivo divisione</th>-->
-<!--                <th>Mese apertura (right)</th>-->
-<!--                <th>Anno apertura (right)</th>-->
-<!--                <th>Mese chiusura (right)</th>-->
-<!--                <th>Anno chiusura (right)</th>-->
-<!--                <th>Denominazione (right)</th>-->
-<!--                <th>Totale posti degenza</th>-->
-<!--                <th>Day hospital</th>-->
-<!--                <th>Day surgery</th>-->
-<!--                <th>Totale posti</th>-->
-<!--                <th>Denominazione finale</th>-->
-            </tr>
-        </thead>
-    </table>
+<div class="container py-5">
+    {% include datatable/strutture/filter.html %}
+    <div class="row py-3"></div>
+    <div class="row" style="font-size: 14px">
+        <div class="col">
+            <table id="struttureTable" class="table table-striped table-bordered">
+                <thead>
+                    {% include datatable/strutture/columns.html %}
+                </thead>
+                <tfoot>
+                    {% include datatable/strutture/columns.html %}
+                </tfoot>
+            </table>
+        </div>
+    </div>
 </div>
 
 <script>
@@ -92,22 +40,139 @@ title: strutture
     //     } );
     // } );
 
+    let $table;
+
     $(document).ready(function() {
         $.ajax({
-            url: "/knime_data/strutture1.json",
+            url: "/knime_data/strutture0.json",
         }).done(function(csv) {
-            console.log(csv)
-            $('#struttureTable').DataTable({
+            // console.log(csv)
+            $table = $('#struttureTable').DataTable({
                 data: csv,
+                responsive: true,
                 "columns": [
                     { data: "CODICE STABILIMENTO" },
                     { data: "Anno" },
                     { data: "Codice Regione" },
                     { data: "Descrizione Regione" },
                     { data: "Codice Azienda" },
-                    { data: "Denominazione Azienda" }
+                    { data: "Denominazione Azienda" },
+                    { data: "Codice USL territoriale" },
+                    { data: "Codice struttura" },
+                    { data: "Denominazione struttura" },
+                    { data: "Tipo struttura" },
+                    { data: "Strutture di ricovero Partita IVA" },
+                    { data: "Descrizione tipo struttura" },
+                    { data: "Tipo IRCCS/AO Univ e Policlinico" },
+                    // { data: "Tipo casa di cura" },
+                    // { data: "Strutture di ricovero Attività riabilitazione" },
+                    // { data: "Strutture di ricovero Attività day surgery" },
+                    // { data: "Strutture di ricovero Attività pediatrica" },
+                    { data: "Subcodice" },
+                    { data: "Denominazione" },
+                    { data: "Stabilimenti Partita IVA" },
+                    // { data: "Stabilimenti Attività day surgery" },
+                    // { data: "Stabilimenti Attività pediatrica" },
+                    // { data: "Stabilimenti Attività riabilitazione" },
+                    { data: "Giorno apertura" },
+                    { data: "Mese apertura" },
+                    { data: "Anno apertura" },
+                    { data: "Giorno chiusura" },
+                    { data: "Mese chiusura" },
+                    { data: "Anno chiusura" },
+                    { data: "Indirizzo" },
+                    { data: "CAP" },
+                    { data: "Codice Comune" },
+                    { data: "Comune" },
+                    { data: "Sigla provincia" },
+                    { data: "Nome provincia" },
+                    { data: "Diagnostica per immagini" },
+                    { data: "Dipartimento emergenza" },
+                    { data: "Centro trasfusionale" },
+                    { data: "Oncologia medica" },
+                    { data: "Pronto soccorso" },
+                    { data: "Pronto soccorso pediatrico" },
+                    { data: "Radioterapia" },
+                    { data: "Servizio rianimazione" },
+                    { data: "Servizio dialisi" },
+                    { data: "Sale operatorie stab" },
+                    { data: "Posti camere iperbariche stab" },
+                    { data: "Incubatrici stab" },
+                    { data: "Culle stab" },
+                    { data: "ClassificazioneStruttura" },
+                    { data: "chiave stabilimento" },
+                    { data: "Codice disciplina" },
+                    { data: "Descrizione disciplina" },
+                    { data: "Progressivo divisione" },
+                    { data: "Mese apertura (right)" },
+                    { data: "Anno apertura (right)" },
+                    { data: "Mese chiusura (right)" },
+                    { data: "Anno chiusura (right)" },
+                    { data: "Denominazione (right)" },
+                    { data: "Totale posti degenza" },
+                    { data: "Day hospital" },
+                    { data: "Day surgery" },
+                    { data: "Totale posti" },
+                    { data: "Denominazione finale" }
                 ]
             });
+            //
+            // addColumnsFiltering($table)
+            // $table.column(3).search('Lazio').draw();
+
+            enableFilterHandlers()
         });
     });
+
+    const addColumnsFiltering = function (table) {
+        table.columns( '.select-filter' ).every( function () {
+            console.log('item',this)
+            var that = this;
+
+            // Create the select list and search operation
+            var select = $('<select />')
+                .appendTo(
+                    this.header()
+                )
+                .on( 'change', function () {
+                    that
+                        .search( $(this).val() )
+                        .draw();
+                } );
+
+            // Get the search data for the first column and add to the select list
+            this
+                .cache( 'search' )
+                .sort()
+                .unique()
+                .each( function ( d ) {
+                    select.append( $('<option value="'+d+'">'+d+'</option>') );
+                } );
+        } );
+    }
+
+    const strutturaColumnIndex = 8;
+    const comuneColumnIndex= 25;
+    const capColumnIndex= 23;
+
+    const enableFilterHandlers = function () {
+        // struttura filter
+        $strutturaInput = $('#struttura')
+        addFilterOnEvent($strutturaInput, strutturaColumnIndex, 'keyup')
+        // comune filter
+        $comuneInput = $('#comune')
+        addFilterOnEvent($comuneInput, comuneColumnIndex, 'keyup')
+        // cap
+        $capInput = $('#cap')
+        addFilterOnEvent($capInput, capColumnIndex, 'keyup')
+    }
+
+    const addFilterOnEvent = function ($element, columnIndex, eventName) {
+        const $column = $table.columns(columnIndex);
+        $element.on( eventName, function () {
+            console.log('searching item', $(this).val())
+            $column.search( $(this).val() ).draw();
+        });
+    }
+
 </script>
