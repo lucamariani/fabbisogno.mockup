@@ -55,6 +55,7 @@ exclude:
    - vendor/cache/
    - vendor/gems/
    - vendor/ruby/
+#   - knime_data/
 
 collections:
   dashboards:
