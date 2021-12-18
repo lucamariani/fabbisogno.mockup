@@ -12,10 +12,14 @@ name: "Agenas"
 ## Site description
 description: "Agenzia Nazionale per i Servizi Sanitari Regionali"
 
-## Site author
-author: "Regione Umbria"
+home:
+  title: "Mockup calcolo fabbisogno"
+  description: "demo dell'applicativo"
 
-descriptionAuthor: "Giunta Regionale"
+## Site author
+author: "Luca Mariani"
+
+descriptionAuthor: "Luca Mariani"
 
 ## Social
 social-links:
@@ -38,18 +42,18 @@ cookie-policy-accept-btn: "Accetto"
 footer-links:
   privacy-policy:
     name: "Privacy policy"
-    url: "https://www.regione.umbria.it/privacy-policy"
+    url: "https://www.agenas.it/privacy-policy"
   cookie-policy:
     name: "Cookie Policy"
-    url: "https://www.regione.umbria.it/privacy-policy"
+    url: "https://www.agenas.it/privacy-policy"
 
 # Footer data
-recapiti1: "Regione Umbria"
+recapiti1: "Agenas"
 recapiti2: "Via Piemonte, 60"
 recapiti3: "00187 - Roma (Italia)"
 recapiti4: "Centralino (+39) 075.504.1"
-email: "accessounico@regione.umbria.it"
-pec: "regione.giunta@postacert.umbria.it"
-privacy_url: "http://www.regione.umbria.it/privacy-policy"
+email: "agenas@agenas.it"
+pec: "agenas@agenas.it"
+privacy_url: "http://www.agenas.it/privacy-policy"
 codice_fiscale: "97113690586"
 codice_ipa: "AGENAS"
