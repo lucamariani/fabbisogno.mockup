@@ -41,10 +41,11 @@ title: strutture
     // } );
 
     let $table;
+    const JSON_ENDPOINT = "{{ site.baseurl }}/knime_data/strutture0.json";
 
     $(document).ready(function() {
         $.ajax({
-            url: "/knime_data/strutture0.json",
+            url: JSON_ENDPOINT,
         }).done(function(csv) {
             // console.log(csv)
             $table = $('#struttureTable').DataTable({
