@@ -36,7 +36,7 @@
                                         <div class="link-list-wrapper">
                                             <ul class="link-list">
                                                 {% for menu_item in site.data.menu.dashboards %}
-                                                <li><a class="list-item text-capitalize"
+                                                <li><a class="list-item text-capitalize {{ menu_item.class }}"
                                                        href="{{ site.baseurl }}/{{ menu_item.metaname }}"><span>{{menu_item.name}}</span></a>
                                                 </li>
                                                 {% endfor %}

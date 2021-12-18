@@ -1,15 +1,22 @@
 dashboards:
   - name: anestesisti
     metaname: anestesisti
+    class:
   - name: area materno/infantile
     metaname: area_materno_infantile
+    class: disabled
   - name: area medica
     metaname: area_medica
+    class: disabled
   - name: cardiologia e unit&agrave; coronarica
     metaname: cardiologia
+    class: disabled
   - name: neurologia e stroke
     metaname: neurologia
+    class: disabled
   - name: rete trauma
     metaname: trauma
+    class: disabled
   - name: radiologia
     metaname: radiologia
+    class: disabled
