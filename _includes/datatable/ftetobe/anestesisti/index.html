@@ -85,17 +85,41 @@
         } );
     }
 
-    const strutturaColumnIndex = 8;
-    const comuneColumnIndex= 25;
+    const codiceRegioneColumnIndex = 1;
+    const regioneColumnIndex = 2;
+    const codiceAziendaColumnIndex = 3;
+    const aziendaColumnIndex = 4;
+    const codiceUSLIndex = 5;
+    const codiceStrutturaColumnIndex = 6;
+    const strutturaColumnIndex = 7;
+    const denominazioneColumnIndex= 9;
     const capColumnIndex= 23;
 
     const enableFilterHandlers = function () {
+        // codice regione filter
+        $codiceRegioneInput = $('#codiceRegione')
+        addFilterOnEvent($codiceRegioneInput, codiceRegioneColumnIndex, 'keyup')
+        // regione filter
+        $regioneInput = $('#regione')
+        addFilterOnEvent($regioneInput, regioneColumnIndex, 'keyup')
+        // codice azienda filter
+        $codiceAziendaInput = $('#codiceAzienda')
+        addFilterOnEvent($codiceAziendaInput, codiceAziendaColumnIndex, 'keyup')
+        // azienda filter
+        $aziendaInput = $('#azienda')
+        addFilterOnEvent($aziendaInput, aziendaColumnIndex, 'keyup')
+        // codice usl filter
+        $codiceUSLInput = $('#codiceUSL')
+        addFilterOnEvent($codiceUSLInput, codiceUSLIndex, 'keyup')
+        // codice struttura filter
+        $codiceStrutturaInput = $('#codiceStruttura')
+        addFilterOnEvent($codiceStrutturaInput, codiceStrutturaColumnIndex, 'keyup')
         // struttura filter
         $strutturaInput = $('#struttura')
         addFilterOnEvent($strutturaInput, strutturaColumnIndex, 'keyup')
-        // comune filter
-        $comuneInput = $('#comune')
-        addFilterOnEvent($comuneInput, comuneColumnIndex, 'keyup')
+        // denominazione filter
+        $denominazioneInput = $('#denominazione')
+        addFilterOnEvent($denominazioneInput, denominazioneColumnIndex, 'keyup')
         // cap
         $capInput = $('#cap')
         addFilterOnEvent($capInput, capColumnIndex, 'keyup')
