@@ -7,29 +7,35 @@
             <div class="container">
                 <div class="row menu">
                     <div class="col-sm"></div>
+
+                    {% if page.tab == 'table' %}
+                        {% assign table-button-class = 'btn-secondary disabled' %}
+                        {% assign table-icon-class = '' %}
+                        {% assign chart-button-class = 'btn-outline-primary' %}
+                        {% assign chart-icon-class = 'icon-primary' %}
+                    {% else %}
+                        {% assign table-button-class = 'btn-outline-primary' %}
+                        {% assign table-icon-class = 'icon-primary' %}
+                        {% assign chart-button-class = 'btn-secondary disabled' %}
+                        {% assign chart-icon-class = '' %}
+                    {% endif %}
+
                     <div class="col-sm">
-                        <a class="btn-link text-decoration-none" href="#">
-                            <svg class="icon icon-primary mr-1">
-                                <use xlink:href="{{ site.baseurl }}/assets/bootstrap-italia/svg/sprite.svg#it-pa"></use>
-                            </svg>
-                            <strong>Home</strong>
-                        </a>
-                    </div>
-                    <div class="col-sm">
-                        <a class="btn-link disabled text-decoration-none" href="#">
-                                <svg class="icon icon-secondary mr-1"> <!--style="border: 1px solid;border-radius: 20px"-->
-                                    <use xlink:href="{{ site.baseurl }}/assets/bootstrap-italia/svg/sprite.svg#it-chart-line"></use>
+                        <button class="btn {{ table-button-class }}" href="#">
+                                <svg class="icon {{ table-icon-class }} mr-1"> <!--style="border: 1px solid;border-radius: 20px"-->
+                                    <use xlink:href="{{ site.baseurl }}/assets/bootstrap-italia/svg/sprite.svg#it-list"></use>
                                 </svg>
-                            <strong class="">Pie charts</strong>
-                        </a>
+                            <strong class="">Table</strong>
+                        </button>
                     </div>
+
                     <div class="col-sm">
-                        <a class="btn-link text-decoration-none" href="#">
-                            <svg class="icon icon-primary mr-1">
+                        <button class="btn btn-outline-primary {{ chart-button-class }}" href="#">
+                            <svg class="icon {{ chart-icon-class }} mr-1">
                                 <use xlink:href="{{ site.baseurl }}/assets/bootstrap-italia/svg/sprite.svg#it-chart-line"></use>
                             </svg>
-                            <strong>Line charts</strong>
-                        </a>
+                            <strong>Charts</strong>
+                        </button>
                     </div>
                     <div class="col-sm"></div>
                 </div>

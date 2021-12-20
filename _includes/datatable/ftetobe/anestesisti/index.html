@@ -1,19 +1,8 @@
----
-layout: dashboard
-title: Anestesisti
-metatitle: fabbisogno anestesisti
-subtitle: fabbisogno anestesisti
-background:
-img:
-permalink: /anestesisti
-lang: it
-order: 10
----
 <style>
     .table th {background-color: #06c; color: white}
 </style>
 
-<div class="container py-5">
+<div class="container pb-5">
     {% comment %}{% include datatable/ftetobe/anestesisti/filter.html %}{% endcomment %}
     <div class="row py-3"></div>
     <div class="row" style="font-size: 10px">
@@ -65,7 +54,7 @@ order: 10
             // addColumnsFiltering($table)
             // $table.column(3).search('Lazio').draw();
 
-            // enableFilterHandlers()
+            enableFilterHandlers()
         });
     });
 
