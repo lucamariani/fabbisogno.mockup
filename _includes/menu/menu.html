@@ -37,7 +37,7 @@
                                             <ul class="link-list">
                                                 {% for menu_item in site.data.menu.dashboards %}
                                                 <li><a class="list-item text-capitalize {{ menu_item.class }}"
-                                                       href="{{ site.baseurl }}/{{ menu_item.permalink }}/"><span>{{menu_item.name}}</span></a>
+                                                       href="{{ site.baseurl }}/{{ menu_item.metaname }}/{{ menu_item.tab }}/"><span>{{menu_item.name}}</span></a>
                                                 </li>
                                                 {% endfor %}
                                                 <!--                        <li><span class="divider"></span></li>-->
