@@ -7,16 +7,38 @@ let fteToBeItalyValue;
 
 Plotly.d3.csv(CSV_ENDPOINT, function(err, rows) {
     regioni = createRegioniArray(rows)
+    console.log(regioni)
     fteAsIsItalyValue = aggregateValues(regioni, 'fteasis')
     fteToBeItalyValue = aggregateValues(regioni, 'ftetobe')
     // set ftes
     setItalyFTE()
+    makePlot()
 })
 
 const makePlot = function() {
-    const data = [trace1, trace2];
-    const layout = {barmode: 'stack'};
-    Plotly.newPlot('myDiv', data, layout);
+    const data = [getFteAsIsTrace(), getFteToBeTrace()];
+    const layout = {
+        barmode: 'group',
+    };
+    Plotly.newPlot('chart1', data, layout);
+}
+
+const getFteAsIsTrace = function () {
+    const trace = [];
+    trace.x = unpack(regioni, 'nome')
+    trace.y = unpack(regioni, 'fteasis')
+    trace.name = 'FTE AS IS'
+    trace.type = 'bar'
+    return trace;
+}
+
+const getFteToBeTrace = function () {
+    return {
+        x: unpack(regioni, 'nome'),
+        y: unpack(regioni, 'ftetobe'),
+        name: 'FTE TO BE',
+        type: 'bar',
+    }
 }
 
 /**
