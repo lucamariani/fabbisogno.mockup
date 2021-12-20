@@ -3,8 +3,8 @@ const REGIONE_KEY = 'Descrizione Regione';
 const FTE_AS_IS_KEY = 'FTE AS IS';
 const FTE_TO_BE_KEY = 'FTE TO BE';
 
-const numberWithCommas = function(x) {
-    return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+const numberWithDots = function(x) {
+    return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ".");
 }
 
 
