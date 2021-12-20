@@ -16,9 +16,16 @@ tab: chart
             <div class="container">
                 <div class="row">
                     <div class="col-12 col-lg-6 col-xl-4 pr-2 mb-3">
+                        <div class="chart-summary">
+                            <h1 class="primary-color">FTE totali</h1>
+                            <h4>FTE AS IS <span id="fte_as_is_italy" class="badge badge-pill badge-primary">120</span>
+                            <h4>FTE TO BE <span id="fte_to_be_italy" class="badge badge-pill badge-primary">70</span>
+                            <h5 class="primary-color">in tutta Italia</h5>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6 col-xl-8 pr-0 mb-3">
                         <div id="chart1" class="chart"></div>
                     </div>
-                    <div class="col-12 col-lg-6 col-xl-8 pr-0 mb-3">Eget egestas purus viverra accumsan. Diam maecenas ultricies mi eget mauris pharetra et. Etiam dignissim diam quis enim. Eu nisl nunc mi ipsum faucibus.</div>
                 </div>
             </div>
         </div>
@@ -34,8 +41,7 @@ tab: chart
         </div>
     </div>
 </div>
-
 <script>
-    const CSV_ENDPOINT = "{{ site.baseurl}}/{{ site.data.chart.anestesisti.csv.fte }}"
+    const CSV_ENDPOINT = "{{ site.baseurl }}/{{ site.data.chart.anestesisti.csv.fte }}";
 </script>
 <script src="{{ site.baseurl }}/assets/js/chart/chart1.js"></script>
