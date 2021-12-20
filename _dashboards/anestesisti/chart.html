@@ -10,7 +10,32 @@ tab: chart
 ---
 {% include chart/ftetobe/anestesisti/index.html %}
 
+<div class="container pb-5">
+    <div class="section section-muted pb-5">
+        <div class="section-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-lg-6 col-xl-4 pr-2 mb-3">
+                        <div id="chart1" class="chart"></div>
+                    </div>
+                    <div class="col-12 col-lg-6 col-xl-8 pr-0 mb-3">Eget egestas purus viverra accumsan. Diam maecenas ultricies mi eget mauris pharetra et. Etiam dignissim diam quis enim. Eu nisl nunc mi ipsum faucibus.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section white-bg pb-5">
+        <div class="section-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-lg-6 col-xl-4 pr-2 mb-3">Platea dictumst vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras. Dictum sit amet justo donec enim diam vulputate ut. Eu nisl nunc mi ipsum faucibus.</div>
+                    <div class="col-12 col-lg-6 col-xl-8 pr-0 mb-3">Eget egestas purus viverra accumsan. Diam maecenas ultricies mi eget mauris pharetra et. Etiam dignissim diam quis enim. Eu nisl nunc mi ipsum faucibus.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script>
-    let $table;
-    const JSON_ENDPOINT = "{{ site.baseurl }}/knime_data/Fte2be_0.json";
+    const CSV_ENDPOINT = "{{ site.baseurl}}/{{ site.data.chart.anestesisti.csv.fte }}"
 </script>
+<script src="{{ site.baseurl }}/assets/js/chart/chart1.js"></script>
