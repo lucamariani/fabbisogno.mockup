@@ -21,21 +21,21 @@
                     {% endif %}
 
                     <div class="col-sm">
-                        <button class="btn {{ table-button-class }}" href="#">
+                        <a class="btn {{ table-button-class }}" href="{{ site.baseurl }}/{{ page.metaname }}/table/">
                                 <svg class="icon {{ table-icon-class }} mr-1"> <!--style="border: 1px solid;border-radius: 20px"-->
                                     <use xlink:href="{{ site.baseurl }}/assets/bootstrap-italia/svg/sprite.svg#it-list"></use>
                                 </svg>
                             <strong class="">Table</strong>
-                        </button>
+                        </a>
                     </div>
 
                     <div class="col-sm">
-                        <button class="btn btn-outline-primary {{ chart-button-class }}" href="#">
+                        <a class="btn {{ chart-button-class }}" href="{{ site.baseurl }}/{{ page.metaname }}/chart/">
                             <svg class="icon {{ chart-icon-class }} mr-1">
                                 <use xlink:href="{{ site.baseurl }}/assets/bootstrap-italia/svg/sprite.svg#it-chart-line"></use>
                             </svg>
                             <strong>Charts</strong>
-                        </button>
+                        </a>
                     </div>
                     <div class="col-sm"></div>
                 </div>

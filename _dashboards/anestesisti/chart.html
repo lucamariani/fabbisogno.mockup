@@ -1,0 +1,16 @@
+---
+layout: dashboard
+title: Fabbisogno Anestesisti
+metatitle: fabbisogno anestesisti
+subtitle: fabbisogno anestesisti
+permalink: /anestesisti/chart
+lang: it
+metaname: anestesisti
+tab: chart
+---
+{% include chart/ftetobe/anestesisti/index.html %}
+
+<script>
+    let $table;
+    const JSON_ENDPOINT = "{{ site.baseurl }}/knime_data/Fte2be_0.json";
+</script>
