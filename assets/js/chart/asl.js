@@ -5,7 +5,7 @@
  * @param ftetobe   the ftetobe to plot
  */
 const makeAslPlot = function(divSelector, fteasis, ftetobe) {
-    const data = [{
+    const data_asis = {
         values: [15, 12, 6, 5, 4, 42],
         labels: ['USL 1', 'USL 2', 'USL 3', 'USL 4', 'USL 5', 'USL 6'],
         domain: {column: 0},
@@ -13,7 +13,8 @@ const makeAslPlot = function(divSelector, fteasis, ftetobe) {
         hoverinfo: 'label+percent+name',
         hole: .4,
         type: 'pie'
-    },{
+    };
+    const data_tobe = {
         values: [11, 25, 8, 1, 3, 25],
         labels: ['USL 1', 'USL 2', 'USL 3', 'USL 4', 'USL 5', 'USL 6'],
         text: 'CO2',
@@ -23,7 +24,12 @@ const makeAslPlot = function(divSelector, fteasis, ftetobe) {
         hoverinfo: 'label+percent+name',
         hole: .4,
         type: 'pie'
-    }];
+    };
+
+    const data = [];
+    if(fteasis !== 0) data.push(data_asis);
+    if(ftetobe !== 0) data.push(data_tobe);
+
     const layout = {
         title: 'FTE per Codici USL 2019',
         annotations: [
