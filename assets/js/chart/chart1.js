@@ -1,8 +1,13 @@
 const chartDivID = 'chart1';
 const chart = $('#' + chartDivID)
 
-const fteAsIsSelector = '#fte_as_is_italy';
-const fteToBeSelector = '#fte_to_be_italy';
+const italyFteAsIsSelector = '#fte_as_is_italy';
+const italyFteToBeSelector = '#fte_to_be_italy';
+const regioneFteAsIsSelector = '#fte_as_is_regione';
+const regioneFteToBeSelector = '#fte_to_be_regione';
+const regioneNameSelector = '#regioneName';
+const regioneSectionSelector = '#regioneSection';
+const $regioneSection = $(regioneSectionSelector);
 
 let regioni = []
 let fteAsIsItalyValue;
@@ -15,11 +20,11 @@ Plotly.d3.csv(CSV_ENDPOINT, function(err, rows) {
     fteToBeItalyValue = aggregateValues(regioni, 'ftetobe')
     // set ftes
     setItalyFTE()
-    makePlot()
-    setClickHandler()
+    makeRegioniPlot()
+    setRegioneClickHandler()
 })
 
-const makePlot = function() {
+const makeRegioniPlot = function() {
     const data = [getFteAsIsTrace(), getFteToBeTrace()];
     const layout = {
         barmode: 'group',
@@ -27,15 +32,24 @@ const makePlot = function() {
     Plotly.newPlot('chart1', data, layout);
 }
 
-const setClickHandler = function () {
+const setRegioneClickHandler = function () {
+    const regioneData = {};
     chart.on('plotly_click', function (event,data) {
-        console.log(data)
-        const regione = data.points[0].x;
-        // for(let i=0; i < data.points.length; i++) {
-        //     pts[i] = 'x = '+data.points[i].x +'\ny = '+
-        //         data.points[i].y.toPrecision(4) + '\n\n';
-        // }
-        console.log(regione)
+        // console.log(data)
+        regioneData.name = data.points[0].x;
+        regioneData.fteasis = data.points[0].y;
+        regioneData.ftetobe = data.points[1].y;
+        console.log(regione, regioneData)
+        // fill summary data
+        setRegioneData(regioneData)
+        // create regione chart
+        makeAslPlot('chartRegione', regioneData.fteasis, regioneData.ftetobe)
+        // show regione section
+        $regioneSection.removeClass('d-none')
+        // navigate to regione section
+        document.querySelector(regioneSectionSelector).scrollIntoView({
+            behavior: 'smooth'
+        });
     })
 }
 
@@ -73,11 +87,23 @@ const createRegioniArray = function (rows) {
 }
 
 const setItalyFTE = function () {
-    $fteAsIs = $(fteAsIsSelector)
+    $fteAsIs = $(italyFteAsIsSelector)
     $fteAsIs.text(numberWithDots(fteAsIsItalyValue))
 
-    $fteToBe = $(fteToBeSelector)
+    $fteToBe = $(italyFteToBeSelector)
     $fteToBe.text(numberWithDots(fteToBeItalyValue))
+}
+
+const setRegioneData = function (regioneData) {
+    // name
+    $regioneName = $(regioneNameSelector)
+    $regioneName.text(regioneData.name)
+    // fte as is
+    $fteAsIs = $(regioneFteAsIsSelector)
+    $fteAsIs.text(numberWithDots(regioneData.fteasis))
+    // fte 2 be
+    $fteToBe = $(regioneFteToBeSelector)
+    $fteToBe.text(numberWithDots(regioneData.ftetobe))
 }
 
 /**
