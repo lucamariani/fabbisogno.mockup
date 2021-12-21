@@ -1,5 +1,8 @@
-const fteAsIsID = 'fte_as_is_italy';
-const fteToBeID = 'fte_to_be_italy';
+const chartDivID = 'chart1';
+const chart = $('#' + chartDivID)
+
+const fteAsIsSelector = '#fte_as_is_italy';
+const fteToBeSelector = '#fte_to_be_italy';
 
 let regioni = []
 let fteAsIsItalyValue;
@@ -13,6 +16,7 @@ Plotly.d3.csv(CSV_ENDPOINT, function(err, rows) {
     // set ftes
     setItalyFTE()
     makePlot()
+    setClickHandler()
 })
 
 const makePlot = function() {
@@ -21,6 +25,18 @@ const makePlot = function() {
         barmode: 'group',
     };
     Plotly.newPlot('chart1', data, layout);
+}
+
+const setClickHandler = function () {
+    chart.on('plotly_click', function (event,data) {
+        console.log(data)
+        const regione = data.points[0].x;
+        // for(let i=0; i < data.points.length; i++) {
+        //     pts[i] = 'x = '+data.points[i].x +'\ny = '+
+        //         data.points[i].y.toPrecision(4) + '\n\n';
+        // }
+        console.log(regione)
+    })
 }
 
 const getFteAsIsTrace = function () {
@@ -57,10 +73,10 @@ const createRegioniArray = function (rows) {
 }
 
 const setItalyFTE = function () {
-    $fteAsIs = $('#' + fteAsIsID)
+    $fteAsIs = $(fteAsIsSelector)
     $fteAsIs.text(numberWithDots(fteAsIsItalyValue))
 
-    $fteToBe = $('#' + fteToBeID)
+    $fteToBe = $(fteToBeSelector)
     $fteToBe.text(numberWithDots(fteToBeItalyValue))
 }
 
