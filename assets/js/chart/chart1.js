@@ -1,5 +1,13 @@
-const fteAsIsID = 'fte_as_is_italy';
-const fteToBeID = 'fte_to_be_italy';
+const chartDivID = 'chart1';
+const chart = $('#' + chartDivID)
+
+const italyFteAsIsSelector = '#fte_as_is_italy';
+const italyFteToBeSelector = '#fte_to_be_italy';
+const regioneFteAsIsSelector = '#fte_as_is_regione';
+const regioneFteToBeSelector = '#fte_to_be_regione';
+const regioneNameSelector = '#regioneName';
+const regioneSectionSelector = '#regioneSection';
+const $regioneSection = $(regioneSectionSelector);
 
 let regioni = []
 let fteAsIsItalyValue;
@@ -12,15 +20,37 @@ Plotly.d3.csv(CSV_ENDPOINT, function(err, rows) {
     fteToBeItalyValue = aggregateValues(regioni, 'ftetobe')
     // set ftes
     setItalyFTE()
-    makePlot()
+    makeRegioniPlot()
+    setRegioneClickHandler()
 })
 
-const makePlot = function() {
+const makeRegioniPlot = function() {
     const data = [getFteAsIsTrace(), getFteToBeTrace()];
     const layout = {
         barmode: 'group',
     };
     Plotly.newPlot('chart1', data, layout);
+}
+
+const setRegioneClickHandler = function () {
+    const regioneData = {};
+    chart.on('plotly_click', function (event,data) {
+        // console.log(data)
+        regioneData.name = data.points[0].x;
+        regioneData.fteasis = data.points[0].y;
+        regioneData.ftetobe = data.points[1].y;
+        console.log(regione, regioneData)
+        // fill summary data
+        setRegioneData(regioneData)
+        // create regione chart
+        makeAslPlot('chartRegione', regioneData.fteasis, regioneData.ftetobe)
+        // show regione section
+        $regioneSection.removeClass('d-none')
+        // navigate to regione section
+        document.querySelector(regioneSectionSelector).scrollIntoView({
+            behavior: 'smooth'
+        });
+    })
 }
 
 const getFteAsIsTrace = function () {
@@ -57,11 +87,23 @@ const createRegioniArray = function (rows) {
 }
 
 const setItalyFTE = function () {
-    $fteAsIs = $('#' + fteAsIsID)
+    $fteAsIs = $(italyFteAsIsSelector)
     $fteAsIs.text(numberWithDots(fteAsIsItalyValue))
 
-    $fteToBe = $('#' + fteToBeID)
+    $fteToBe = $(italyFteToBeSelector)
     $fteToBe.text(numberWithDots(fteToBeItalyValue))
+}
+
+const setRegioneData = function (regioneData) {
+    // name
+    $regioneName = $(regioneNameSelector)
+    $regioneName.text(regioneData.name)
+    // fte as is
+    $fteAsIs = $(regioneFteAsIsSelector)
+    $fteAsIs.text(numberWithDots(regioneData.fteasis))
+    // fte 2 be
+    $fteToBe = $(regioneFteToBeSelector)
+    $fteToBe.text(numberWithDots(regioneData.ftetobe))
 }
 
 /**

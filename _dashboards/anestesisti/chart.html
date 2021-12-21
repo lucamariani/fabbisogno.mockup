@@ -11,15 +11,15 @@ tab: chart
 {% include chart/ftetobe/anestesisti/index.html %}
 
 <div class="container pb-5">
-    <div class="section section-muted pb-5">
+    <div id="nazioneSection" class="section section-muted pb-5">
         <div class="section-content">
             <div class="container">
                 <div class="row">
                     <div class="col-12 col-lg-6 col-xl-4 pr-2 mb-3">
                         <div class="chart-summary">
                             <h1 class="primary-color">FTE totali</h1>
-                            <h4>FTE AS IS <span id="fte_as_is_italy" class="badge badge-pill badge-primary">120</span>
-                            <h4>FTE TO BE <span id="fte_to_be_italy" class="badge badge-pill badge-primary">70</span>
+                            <h4>FTE AS IS <span id="fte_as_is_italy" class="badge badge-pill badge-primary">120</span></h4>
+                            <h4>FTE TO BE <span id="fte_to_be_italy" class="badge badge-pill badge-primary">70</span></h4>
                             <h5 class="primary-color">in tutta Italia</h5>
                         </div>
                     </div>
@@ -30,12 +30,20 @@ tab: chart
             </div>
         </div>
     </div>
-    <div class="section white-bg pb-5">
+    <div id="regioneSection" class="section white-bg pb-5 d-none">
         <div class="section-content">
             <div class="container">
                 <div class="row">
-                    <div class="col-12 col-lg-6 col-xl-4 pr-2 mb-3">Platea dictumst vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras. Dictum sit amet justo donec enim diam vulputate ut. Eu nisl nunc mi ipsum faucibus.</div>
-                    <div class="col-12 col-lg-6 col-xl-8 pr-0 mb-3">Eget egestas purus viverra accumsan. Diam maecenas ultricies mi eget mauris pharetra et. Etiam dignissim diam quis enim. Eu nisl nunc mi ipsum faucibus.</div>
+                    <div class="col-12 col-lg-6 col-xl-4 pr-2 mb-3">
+                        <div class="chart-summary">
+                            <h1 id="regioneName" class="primary-color"></h1>
+                            <h4>FTE AS IS <span id="fte_as_is_regione" class="badge badge-pill badge-primary"></span></h4>
+                            <h4>FTE TO BE <span id="fte_to_be_regione" class="badge badge-pill badge-primary"></span></h4>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6 col-xl-8 pr-0 mb-3">
+                        <div id="chartRegione" class="chart"></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -45,3 +53,4 @@ tab: chart
     const CSV_ENDPOINT = "{{ site.baseurl }}/{{ site.data.chart.anestesisti.csv.fte }}";
 </script>
 <script src="{{ site.baseurl }}/assets/js/chart/chart1.js"></script>
+<script src="{{ site.baseurl }}/assets/js/chart/asl.js"></script>
