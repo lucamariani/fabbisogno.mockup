@@ -25,6 +25,7 @@ title: strutture
 </div>
 
 <script>
+    const CODICE_STRUTTURA_COL = 'Codice struttura';
     let year = 2019;
     let $table;
     const JSON_ENDPOINT = "{{ site.baseurl }}/knime_data/" + year + "/aggregate_strutture0.json";
@@ -51,6 +52,13 @@ title: strutture
                     { data: "Totale posti degenza" }
                 ]
             });
+
+            // handle row clicks
+            $('#struttureTable').on('click', 'tbody tr', function () {
+                let data = $table.row( this ).data();
+                alert( 'You clicked on ' + data[CODICE_STRUTTURA_COL] );
+            } );
+
             //
             // addColumnsFiltering($table)
             // $table.column(3).search('Lazio').draw();
@@ -59,32 +67,32 @@ title: strutture
         });
     });
 
-    const addColumnsFiltering = function (table) {
-        table.columns( '.select-filter' ).every( function () {
-            console.log('item',this)
-            var that = this;
-
-            // Create the select list and search operation
-            var select = $('<select />')
-                .appendTo(
-                    this.header()
-                )
-                .on( 'change', function () {
-                    that
-                        .search( $(this).val() )
-                        .draw();
-                } );
-
-            // Get the search data for the first column and add to the select list
-            this
-                .cache( 'search' )
-                .sort()
-                .unique()
-                .each( function ( d ) {
-                    select.append( $('<option value="'+d+'">'+d+'</option>') );
-                } );
-        } );
-    }
+    // const addColumnsFiltering = function (table) {
+    //     table.columns( '.select-filter' ).every( function () {
+    //         console.log('item',this)
+    //         var that = this;
+    //
+    //         // Create the select list and search operation
+    //         var select = $('<select />')
+    //             .appendTo(
+    //                 this.header()
+    //             )
+    //             .on( 'change', function () {
+    //                 that
+    //                     .search( $(this).val() )
+    //                     .draw();
+    //             } );
+    //
+    //         // Get the search data for the first column and add to the select list
+    //         this
+    //             .cache( 'search' )
+    //             .sort()
+    //             .unique()
+    //             .each( function ( d ) {
+    //                 select.append( $('<option value="'+d+'">'+d+'</option>') );
+    //             } );
+    //     } );
+    // }
 
     const strutturaColumnIndex = 7;
     const comuneColumnIndex= 25;
