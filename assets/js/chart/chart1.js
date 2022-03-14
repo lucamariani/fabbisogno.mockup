@@ -9,6 +9,12 @@ const regioneNameSelector = '#regioneName';
 const regioneSectionSelector = '#regioneSection';
 const $regioneSection = $(regioneSectionSelector);
 
+const $yearSelect = $('#yearSelect')
+$yearSelect.change(function () {
+    selectedYear = $yearSelect.val()
+    console.log('selected year', selectedYear)
+})
+
 let regioni = []
 let fteAsIsItalyValue;
 let fteToBeItalyValue;

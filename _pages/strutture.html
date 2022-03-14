@@ -25,9 +25,9 @@ title: strutture
 </div>
 
 <script>
-
+    let year = 2019;
     let $table;
-    const JSON_ENDPOINT = "{{ site.baseurl }}/knime_data/aggregate_strutture0.json";
+    const JSON_ENDPOINT = "{{ site.baseurl }}/knime_data/" + year + "/aggregate_strutture0.json";
 
     $(document).ready(function() {
         $.ajax({
